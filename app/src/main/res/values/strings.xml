@@ -13,6 +13,10 @@
     <string name="ability_pokemon">Ability Pokemon</string>
     <string name="category">Category</string>
     <string name="category_pokemon">Category Pokemon</string>
+    <string name="email">222112217@stis.ac.id</string>
+    <string name="nama_user">M. Julian Firdaus</string>
+    <string name="about">About</string>
+    <string name="user_photo">User Photo</string>
 
     <string-array name="data_id">
         <item>\#0001</item>

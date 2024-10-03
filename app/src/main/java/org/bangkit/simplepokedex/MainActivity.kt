@@ -3,8 +3,11 @@ package org.bangkit.simplepokedex
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import org.bangkit.simplepokedex.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +26,21 @@ class MainActivity : AppCompatActivity() {
 
         list.addAll(getListPokemon())
         showRecyclerList()
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.title = "Simple Pokedex"
+
+        binding.ivUserPhoto.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
+        Glide.with(this)
+            .load(R.drawable.user)
+            .circleCrop()
+            .into(binding.ivUserPhoto)
     }
 
     private fun getListPokemon(): ArrayList<Pokemon> {
@@ -66,4 +84,5 @@ class MainActivity : AppCompatActivity() {
         }
         binding.rvPokemon.adapter = listPokemonAdapter
     }
+
 }
