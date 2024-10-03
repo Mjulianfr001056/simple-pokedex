@@ -3,6 +3,16 @@
 
     <string name="pokemon_name">Nama Pokemon</string>
     <string name="description">Deskripsi</string>
+    <string name="id_pokemon">Id Pokemon</string>
+    <string name="nama_pokemon">Nama Pokemon</string>
+    <string name="height">Height</string>
+    <string name="tinggi_pokemon">Tinggi Pokemon</string>
+    <string name="weight">Weight</string>
+    <string name="berat_pokemon">Berat Pokemon</string>
+    <string name="ability">Ability</string>
+    <string name="ability_pokemon">Ability Pokemon</string>
+    <string name="category">Category</string>
+    <string name="category_pokemon">Category Pokemon</string>
 
     <string-array name="data_id">
         <item>\#0001</item>
@@ -33,7 +43,7 @@
     <string-array name="data_description">
         <!--Bulbasaur-->
         <item>For some time after its birth, it uses the nutrients that are packed into the seed on its back in order to grow.</item>
-       <!--Charmander-->
+        <!--Charmander-->
         <item>The flame on its tail shows the strength of its life-force. If Charmander is weak, the flame also burns weakly.</item>
         <!--Squirtle-->
         <item>After birth, its back swells and hardens into a shell. It sprays a potent foam from its mouth.</item>

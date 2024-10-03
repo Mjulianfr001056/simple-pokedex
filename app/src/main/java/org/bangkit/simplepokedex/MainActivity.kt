@@ -1,5 +1,6 @@
 package org.bangkit.simplepokedex
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -58,7 +59,10 @@ class MainActivity : AppCompatActivity() {
     private fun showRecyclerList() {
         binding.rvPokemon.layoutManager = LinearLayoutManager(this)
         val listPokemonAdapter = ListPokemonAdapter(list) {
-            // Do something when item clicked
+            Log.d(TAG, "showRecyclerList: item clicked")
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_POKEMON, it)
+            startActivity(intent)
         }
         binding.rvPokemon.adapter = listPokemonAdapter
     }

@@ -8,7 +8,7 @@ import org.bangkit.simplepokedex.databinding.ItemRowPokemonBinding
 
 class ListPokemonAdapter(
     private val listPokemon: ArrayList<Pokemon>,
-    private val onClick: () -> Unit
+    private val onClick: (Pokemon) -> Unit
 ) : RecyclerView.Adapter<ListPokemonAdapter.ListViewHolder>() {
 
     class ListViewHolder(var binding: ItemRowPokemonBinding) : RecyclerView.ViewHolder(binding.root)
@@ -28,7 +28,7 @@ class ListPokemonAdapter(
             .load(pokemon.photo)
             .into(holder.binding.imgItemPhoto)
         holder.itemView.setOnClickListener {
-            onClick()
+            onClick(pokemon)
         }
     }
 }
