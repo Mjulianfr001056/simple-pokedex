@@ -1,3 +1,146 @@
 <resources>
     <string name="app_name">SimplePokedex</string>
+
+    <string name="pokemon_name">Nama Pokemon</string>
+    <string name="description">Deskripsi</string>
+
+    <string-array name="data_id">
+        <item>\#0001</item>
+        <item>\#0004</item>
+        <item>\#0007</item>
+        <item>\#0025</item>
+        <item>\#0039</item>
+        <item>\#0052</item>
+        <item>\#0054</item>
+        <item>\#0143</item>
+        <item>\#0149</item>
+        <item>\#0150</item>
+    </string-array>
+
+    <string-array name="data_name">
+        <item>Bulbasaur</item>
+        <item>Charmander</item>
+        <item>Squirtle</item>
+        <item>Pikachu</item>
+        <item>Jigglypuff</item>
+        <item>Meowth</item>
+        <item>Psyduck</item>
+        <item>Snorlax</item>
+        <item>Dragonite</item>
+        <item>Mewtwo</item>
+    </string-array>
+
+    <string-array name="data_description">
+        <!--Bulbasaur-->
+        <item>For some time after its birth, it uses the nutrients that are packed into the seed on its back in order to grow.</item>
+       <!--Charmander-->
+        <item>The flame on its tail shows the strength of its life-force. If Charmander is weak, the flame also burns weakly.</item>
+        <!--Squirtle-->
+        <item>After birth, its back swells and hardens into a shell. It sprays a potent foam from its mouth.</item>
+        <!--Pikachu-->
+        <item>When it is angered, it immediately discharges the energy stored in the pouches in its cheeks.</item>
+        <!--Jigglypuff-->
+        <item>When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep.</item>
+        <!--Meowth-->
+        <item>All it does is sleep during the daytime. At night, it patrols its territory with its eyes aglow.</item>
+        <!--Psyduck-->
+        <item>It is constantly wracked by a headache. When the headache turns intense, it begins using mysterious powers.</item>
+        <!--Snorlax-->
+        <item>This gluttonous Pokémon eats constantly, apart from when it’s asleep. It devours nearly 900 pounds of food per day.</item>
+        <!--Dragonite-->
+        <item>It is said that somewhere in the ocean lies an island where these gather. Only they live there.</item>
+        <!--Mewtwo-->
+        <item>Its DNA is almost the same as Mew’s. However, its size and disposition are vastly different.</item>
+    </string-array>
+
+    <string-array name="data_photo">
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/004.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/039.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/052.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/054.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/143.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/149.png</item>
+        <item>https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/150.png</item>
+    </string-array>
+
+    <string-array name="data_height">
+        <item>2\' 04\"</item>
+        <item>2\' 00\"</item>
+        <item>1\' 08\"</item>
+        <item>1\' 04\"</item>
+        <item>1\' 08\"</item>
+        <item>1\' 04\"</item>
+        <item>2\' 07\"</item>
+        <item>6\' 11\"</item>
+        <item>7\' 03\"</item>
+        <item>6\' 07\"</item>
+    </string-array>
+
+    <string-array name="data_category">
+        <item>Seed</item>
+        <item>Lizard</item>
+        <item>Tiny Turtle</item>
+        <item>Mouse</item>
+        <item>Balloon</item>
+        <item>Scratch Cat</item>
+        <item>Duck</item>
+        <item>Sleeping</item>
+        <item>Dragon</item>
+        <item>Genetic</item>
+    </string-array>
+
+    <string-array name="data_weight">
+        <item>15.2 lbs</item>
+        <item>18.7 lbs</item>
+        <item>19.8 lbs</item>
+        <item>13.2 lbs</item>
+        <item>12.1 lbs</item>
+        <item>9.3 lbs</item>
+        <item>43.2 lbs</item>
+        <item>1014.1 lbs</item>
+        <item>463.0 lbs</item>
+        <item>269.0 lbs</item>
+    </string-array>
+
+    <string-array name="data_ability">
+        <item>Overgrow</item>
+        <item>Blaze</item>
+        <item>Torrent</item>
+        <item>Static</item>
+        <item>Cute Charm</item>
+        <item>Pickup</item>
+        <item>Damp</item>
+        <item>Thick Fat</item>
+        <item>Inner Focus</item>
+        <item>Pressure</item>
+    </string-array>
+
+    <string-array name="data_type">
+        <item>Grass, Poison</item>
+        <item>Fire</item>
+        <item>Water</item>
+        <item>Electric</item>
+        <item>Normal, Fairy</item>
+        <item>Normal</item>
+        <item>Water</item>
+        <item>Normal</item>
+        <item>Dragon, Flying</item>
+        <item>Psychic</item>
+    </string-array>
+
+    <string-array name="data_weakness">
+        <item>Fire, Flying, Ice, Psychic</item>
+        <item>Ground, Rock, Water</item>
+        <item>Electric, Grass</item>
+        <item>Ground</item>
+        <item>Poison, Steel</item>
+        <item>Fighting</item>
+        <item>Electric, Grass</item>
+        <item>Fighting</item>
+        <item>Dragon, Fairy, Ice, Rock</item>
+        <item>Bug, Dark, Ghost</item>
+    </string-array>
 </resources>
