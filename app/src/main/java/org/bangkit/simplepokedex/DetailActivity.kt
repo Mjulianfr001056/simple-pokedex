@@ -34,13 +34,12 @@ class DetailActivity : AppCompatActivity() {
             binding.tvId.text = pokemon.id
             binding.tvName.text = pokemon.name
             binding.tvDescription.text = pokemon.description
-            binding.tvHeight.text = pokemon.height
-            binding.tvWeight.text = pokemon.weight
-            binding.tvAbility.text = pokemon.ability
-            binding.tvCategory.text = pokemon.category
+            binding.statsPokemon.cHeight.text = pokemon.height
+            binding.statsPokemon.cWeight.text = pokemon.weight
+            binding.statsPokemon.cAbility.text = pokemon.ability
+            binding.statsPokemon.cCategory.text = pokemon.category
 //            binding.tvType.text = pokemon.type.joinToString(", ")
 //            binding.tvWeakness.text = pokemon.weakness.joinToString(", ")
-//            binding.ivPhoto.setImageResource(pokemon.photo.toInt())
         }
     }
 }

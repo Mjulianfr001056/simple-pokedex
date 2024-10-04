@@ -11,6 +11,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:paddingBottom="8dp"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -56,80 +57,77 @@
             android:text="@string/description"
             android:textSize="14sp" />
 
+        <include
+            android:id="@+id/statsPokemon"
+            layout="@layout/stats_pokemon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/height"
-            android:textSize="16sp"
+            android:text="Type"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_height"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tinggi_pokemon"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/typeBadge1"
+                layout="@layout/type_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+
+            <include
+                android:id="@+id/typeBadge2"
+                layout="@layout/type_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/weight"
-            android:textSize="16sp"
+            android:text="Weakness"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_weight"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/berat_pokemon"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/ability"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <include
+                android:id="@+id/weaknessBadge1"
+                layout="@layout/type_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/tv_ability"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ability_pokemon"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/category"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/category_pokemon"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp" />
+            <include
+                android:id="@+id/weaknessBadge2"
+                layout="@layout/type_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
