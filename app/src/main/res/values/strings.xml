@@ -17,6 +17,8 @@
     <string name="nama_user">M. Julian Firdaus</string>
     <string name="about">About</string>
     <string name="user_photo">User Photo</string>
+    <string name="pokemon_type">Pokemon_Type</string>
+    <string name="type">Type</string>
 
     <string-array name="data_id">
         <item>\#0001</item>

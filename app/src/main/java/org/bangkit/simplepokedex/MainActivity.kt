@@ -66,8 +66,8 @@ class MainActivity : AppCompatActivity() {
                 dataWeight[i],
                 dataAbility[i],
                 dataCategory[i],
-                dataType[i].split(","),
-                dataWeakness[i].split(",")
+                dataType[i].split(", "),
+                dataWeakness[i].split(", ")
             )
             listPokemon.add(pokemon)
         }
