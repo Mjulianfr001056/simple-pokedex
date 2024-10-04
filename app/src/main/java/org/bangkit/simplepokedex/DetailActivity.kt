@@ -1,22 +1,25 @@
 package org.bangkit.simplepokedex
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.marginEnd
 import com.bumptech.glide.Glide
 import com.google.android.flexbox.FlexboxLayout
 import org.bangkit.simplepokedex.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityDetailBinding
+    private val pokemon: Pokemon by lazy {
+        getPokemonFromIntent()
+    }
     companion object {
         const val EXTRA_POKEMON = "extra_pokemon"
     }
@@ -26,55 +29,116 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val pokemon = if (Build.VERSION.SDK_INT >= 33) {
-            intent.getParcelableExtra(EXTRA_POKEMON, Pokemon::class.java)
-        } else {
-            @Suppress("DEPRECATION")
-            intent.getParcelableExtra(EXTRA_POKEMON)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        Glide.with(this)
+            .load(pokemon.photo)
+            .into(binding.ivPokemon)
+
+        val layoutParams = FlexboxLayout.LayoutParams(
+            FlexboxLayout.LayoutParams.WRAP_CONTENT,
+            FlexboxLayout.LayoutParams.WRAP_CONTENT
+        )
+        layoutParams.setMargins(16, 0, 16, 0)
+
+        pokemon.weakness.forEach {
+            val badgeView = LayoutInflater.from(this@DetailActivity).inflate(R.layout.type_badge, null)
+            badgeView.findViewById<TextView>(R.id.tv_type).text = it
+            badgeView.layoutParams = layoutParams
+
+            val color = getColorForType(it)
+            badgeView.findViewById<TextView>(R.id.tv_type).setBackgroundColor(color)
+
+            binding.weaknessBadgesContainer.addView(badgeView)
         }
 
-        if (pokemon != null) {
-            Glide.with(this)
-                .load(pokemon.photo)
-                .into(binding.ivPokemon)
+        pokemon.type.forEach {
+            val badgeView = LayoutInflater.from(this@DetailActivity).inflate(R.layout.type_badge, null)
+            badgeView.findViewById<TextView>(R.id.tv_type).text = it
+            badgeView.layoutParams = layoutParams
 
-            val layoutParams = FlexboxLayout.LayoutParams(
-                FlexboxLayout.LayoutParams.WRAP_CONTENT,
-                FlexboxLayout.LayoutParams.WRAP_CONTENT
-            )
-            layoutParams.setMargins(16, 0, 16, 0)
+            val color = getColorForType(it)
+            badgeView.findViewById<TextView>(R.id.tv_type).setBackgroundColor(color)
 
-            pokemon.weakness.forEach {
-                val badgeView = LayoutInflater.from(this@DetailActivity).inflate(R.layout.type_badge, null)
-                badgeView.findViewById<TextView>(R.id.tv_type).text = it
-                badgeView.layoutParams = layoutParams
+            binding.typeBadgesContainer.addView(badgeView)
+        }
 
-                val color = getColorForType(it)
-                badgeView.findViewById<TextView>(R.id.tv_type).setBackgroundColor(color)
+        with(binding){
+            tvId.text = pokemon.id
+            tvName.text = pokemon.name
+            tvDescription.text = pokemon.description
+            statsPokemon.cHeight.text = pokemon.height
+            statsPokemon.cWeight.text = pokemon.weight
+            statsPokemon.cAbility.text = pokemon.ability
+            statsPokemon.cCategory.text = pokemon.category
+        }
+    }
 
-                binding.weaknessBadgesContainer.addView(badgeView)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_share, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_share -> {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain"
+
+                val shareText = """
+                    Check out this Pokémon!
+                    
+                    ID: ${pokemon.id}
+                    Name: ${pokemon.name}
+                    Description: ${pokemon.description}
+                    
+                    Height: ${pokemon.height}
+                    Weight: ${pokemon.weight}
+                    Ability: ${pokemon.ability}
+                    Category: ${pokemon.category}
+                    
+                    Type(s): ${pokemon.type.joinToString(", ")}
+                    Weakness(es): ${pokemon.weakness.joinToString(", ")}
+                    
+                    #Pokemon
+                """.trimIndent()
+
+                intent.putExtra(Intent.EXTRA_TEXT, shareText)
+                startActivity(Intent.createChooser(intent, "Share to:"))
+                true
             }
 
-            pokemon.type.forEach {
-                val badgeView = LayoutInflater.from(this@DetailActivity).inflate(R.layout.type_badge, null)
-                badgeView.findViewById<TextView>(R.id.tv_type).text = it
-                badgeView.layoutParams = layoutParams
-
-                val color = getColorForType(it)
-                badgeView.findViewById<TextView>(R.id.tv_type).setBackgroundColor(color)
-
-                binding.typeBadgesContainer.addView(badgeView)
+            android.R.id.home -> {
+                finish()
+                true
             }
 
-            with(binding){
-                tvId.text = pokemon.id
-                tvName.text = pokemon.name
-                tvDescription.text = pokemon.description
-                statsPokemon.cHeight.text = pokemon.height
-                statsPokemon.cWeight.text = pokemon.weight
-                statsPokemon.cAbility.text = pokemon.ability
-                statsPokemon.cCategory.text = pokemon.category
+            else -> {
+                super.onOptionsItemSelected(item)
             }
+        }
+    }
+
+    private fun getPokemonFromIntent(): Pokemon {
+        val defaultPokemon = Pokemon(
+            id = "000",
+            name = "Unknown",
+            description = "No description available",
+            photo = "",
+            height = "Unknown",
+            weight = "Unknown",
+            ability = "Unknown",
+            category = "Unknown",
+            type = listOf(),
+            weakness = listOf()
+        )
+
+        return if (Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra(EXTRA_POKEMON, Pokemon::class.java) ?: defaultPokemon
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(EXTRA_POKEMON) ?: defaultPokemon
         }
     }
 
